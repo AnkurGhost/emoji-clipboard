@@ -1,0 +1,22 @@
+[package]
+name = "emoji-clipboard"
+version = "0.3.4"
+edition = "2021"
+description = "A lightweight Windows-style emoji, kaomoji, GIF and clipboard picker for XFCE"
+license = "MIT"
+
+[dependencies]
+gtk = { version = "0.18", features = ["v3_24"] }
+gdk-pixbuf = "0.18"
+emojis = "0.9"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+urlencoding = "2.1"
+ureq = { version = "2.12", default-features = true }
+
+[profile.release]
+opt-level = "s"
+lto = "thin"
+codegen-units = 1
+strip = true
+panic = "abort"
